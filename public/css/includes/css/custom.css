@@ -17,6 +17,9 @@ hr {
 .navbar-inverse {
   background: rgba(34, 34, 34, 0.9);
 }
+.li-previousView {
+  margin-right: 10px;
+}
 .btn.btn-primary {
   background: #56b6d3;
   color: #222222 !important;
@@ -131,7 +134,7 @@ hr {
   color: #979797;
 }
 .bwizard-steps .active a {
-  color: #fff;
+  color: #222222;
   cursor: default;
 }
 .bwizard-steps a:hover {

@@ -26,7 +26,8 @@ var baseSchema = new Schema({
   teaSetup: {type: Number, default: 3},
   music: {type: Number, default: 6},
   musicSetup: {type: Number, default: 2},
-  fire: {type: Number, default: 2}
+  fire: {type: Number, default: 2},
+  foodList: {type: Array}
 });
 
 // CREATE DATABASE MODEL

@@ -1,13 +1,15 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>New Years Eve: Together Wherever</h1>
-    </div>
-  </div>
-  <div class="row">
-  	<div class="col-xs-12 wizard-contents">
-    	<div id="wizard-container"></div>
-  	</div>
-  </div>
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3 text-center">
+			<h1>NYE: Together Wherever</small></h1>
+			<h4>There are currently <%= tickets %> tickets remaining.</h4>
 
+			<% if(tickets === 0) { %>
+				<a class="btn btn-lg btn-danger" style="pointer-events:none">Registration Closed</a>
+			<% } else { %>
+				<a href="#signup" class="btn btn-lg btn-warning">Get yours now!</a>
+			<% } %>
+
+		</div>
+	</div>
 </div>

@@ -9,7 +9,7 @@
     <div class="row">
 
         <form role="form">
-            <div class="col-xs-3">
+            <div class="col-xs-12 col-sm-3">
 
                 <div class="form-group">
                     <% if(alter === 0) { %>
@@ -17,7 +17,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="alter">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="alter">Alter (<%= alter %>)</label>
+                    <label data-message="some copy about this job" data-title="Alter" class="tt" for="alter">Alter (<%= alter %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -26,7 +26,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="brunch-prep">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="brunchPrep">Brunch Preparation (<%= brunchPrep %>)</label>
+                    <label data-message="some copy about this job" data-title="Brunch Preparation" class="tt" for="brunchPrep">Brunch Preparation (<%= brunchPrep %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -35,7 +35,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="brunch-Clean">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="brunchClean">Brunch Clean Up (<%= brunchClean %>)</label>
+                    <label data-message="some copy about this job" data-title="Brunch Cleanup" class="tt" for="brunchClean">Brunch Clean Up (<%= brunchClean %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -44,7 +44,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="dinner-prep">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="dinnerPrep">Dinner Preparation (<%= dinnerPrep %>)</label>
+                    <label data-message="some copy about this job" data-title="Dinner Preparation" class="tt" for="dinnerPrep">Dinner Preparation (<%= dinnerPrep %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -53,7 +53,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="dinner-Clean">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="dinnerClean">Dinner Clean Up (<%= dinnerClean %>)</label>
+                    <label data-message="some copy about this job" data-title="Dinner Cleanup" class="tt" for="dinnerClean">Dinner Clean Up (<%= dinnerClean %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -62,12 +62,12 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="fire-keeper">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="fire">Fire Keeper (<%= fire %>)</label>
+                    <label data-message="some copy about this job" data-title="Fire Keeper" class="tt" for="fire">Fire Keeper (<%= fire %>)</label>
                 </div>
 
             </div>
 
-            <div class="col-xs-3">
+            <div class="col-xs-12 col-sm-3">
 
                 <div class="form-group">
                     <% if(music === 0) { %>
@@ -75,7 +75,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="musician">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="musician">Musician (<%= music %>)</label>
+                    <label data-message="some copy about this job" data-title="Musician" class="tt" for="musician">Musician (<%= music %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -84,7 +84,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="music-setup">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="music-setup">Music Setup (<%= musicSetup %>)</label>
+                    <label data-message="some copy about this job" data-title="Music Setup" class="tt" for="music-setup">Music Setup (<%= musicSetup %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -93,7 +93,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="tea">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="tea">Tea Preparation (<%= tea %>)</label>
+                    <label data-message="some copy about this job" data-title="Tea Preparation" class="tt" for="tea">Tea Preparation (<%= tea %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -102,7 +102,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="tea-setup">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="tea-setup">Tea Alter Setup (<%= teaSetup %>)</label>
+                    <label data-message="some copy about this job" data-title="Tea Alter Setup" class="tt" for="tea-setup">Tea Alter Setup (<%= teaSetup %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -111,7 +111,7 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="temple-setup">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="temple-setup">Temple Setup (<%= templeSetup %>)</label>
+                    <label data-message="some copy about this job" data-title="Temple Setup" class="tt" for="temple-setup">Temple Setup (<%= templeSetup %>)</label>
                 </div>
 
                 <div class="form-group">
@@ -120,14 +120,14 @@
                     <% } else { %>
                         <input type="radio" name="jobs" id="temple-breakdown">
                     <% } %>
-                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="temple-breakdown">Temple Breakdown (<%= templeBreakdown %>)</label>
+                    <label data-message="some copy about this job" data-title="Temple Breakdown" class="tt" for="temple-breakdown">Temple Breakdown (<%= templeBreakdown %>)</label>
                 </div>
 
 
             </div>
         </form>
 
-        <div class="col-xs-6">
+        <div class="col-xs-12 col-sm-6">
 
             <p>If you happen to make it here and there are no jobs left, just continue on and we will assign you something when you arrive! Hover over any of the jobs to see the description below.</p>
 

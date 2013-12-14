@@ -1,8 +1,8 @@
 // Router.js
 
-define(["jquery", "backbone", "models/baseModel", "views/IndexView", "collections/IndexCollection"],
+define(["jquery", "backbone", "models/baseModel", "views/IndexView", "views/SignupView", "collections/IndexCollection"],
 
-    function($, Backbone, BaseModel, View, Collection) {
+    function($, Backbone, Base, IndexView, SignupView, Collection) {
 
         var Router = Backbone.Router.extend({
 
@@ -17,14 +17,37 @@ define(["jquery", "backbone", "models/baseModel", "views/IndexView", "collection
             routes: {
 
                 // When there is no hash on the url, the home method is called
-                "": "index"
+                "": "index",
+                "signup": "signup"
 
+            },
+
+            signup: function() {
+
+                var _this = this;
+
+                var base = new Base();
+                base.fetch({
+                    success: function() {
+                        if(base.get('tickets') > 0) {
+                            new SignupView();
+                        } else {
+                            _this.navigate('/', true);
+                        }
+                    }
+                })
             },
 
             index: function() {
 
-                // Instantiates a new view which will render the header text to the page
-                new View();
+                var base = new Base();
+
+                base.fetch({
+                    success: function() {
+                        new IndexView({model: base});
+                        this.base = base;
+                    }
+                });
 
             }
 

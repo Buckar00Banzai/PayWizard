@@ -2,161 +2,33 @@
 
     <hr>
 
-    <h3>Confirm Your Order</h3>
+    <h3>Food List</h3>
 
-    <div class="row-fluid">
-        <div class="span6">
-            <h5>Machine:</h5>
-            <table class="table table-striped table-responsive" style="border: 1px solid rgba(0,0,0,0.1)">
-                <% if (hardware == '2') { %>
-                    <tr>
-                        <td>OS:</td>
-                        <td><%= os %></td>
-                    </tr>
-                    <tr>
-                        <td>Cores:</td>
-                        <td>2</td>
-                    <tr>
-                        <td>RAM:</td>
-                        <td>10 GB</td>
-                    </tr>
-                    <tr>
-                        <td>Disk:</td>
-                        <td>250 GB RAID10 SSD</td>
-                    </tr>
-                    <tr>
-                        <td>Net</td>
-                        <td>40 Gbe</td>
-                    </tr>
-                <% } %>
+    <hr>
 
-                <% if (hardware == '4') { %>
-                    <tr>
-                        <td>OS:</td>
-                        <td><%= os %></td>
-                    </tr>
-                    <tr>
-                        <td>Cores:</td>
-                        <td>4</td>
-                    <tr>
-                        <td>RAM:</td>
-                        <td>20 GB</td>
-                    </tr>
-                    <tr>
-                        <td>Disk:</td>
-                        <td>500 GB RAID10 SSD</td>
-                    </tr>
-                    <tr>
-                        <td>Net</td>
-                        <td>40 Gbe</td>
-                    </tr>
-                <% } %>
+    <div class="row">
 
-                <% if (hardware == '8') { %>
-                    <tr>
-                        <td>OS:</td>
-                        <td><%= os %></td>
-                    </tr>
-                    <tr>
-                        <td>Cores:</td>
-                        <td>8</td>
-                    <tr>
-                        <td>RAM:</td>
-                        <td>40 GB</td>
-                    </tr>
-                    <tr>
-                        <td>Disk:</td>
-                        <td>1000 GB RAID10 SSD</td>
-                    </tr>
-                    <tr>
-                        <td>Net</td>
-                        <td>40 Gbe</td>
-                    </tr>
-                <% } %>
+        <form role="form">
 
-                <% if (hardware == '16') { %>
-                    <tr>
-                        <td>OS:</td>
-                        <td><%= os %></td>
-                    </tr>
-                    <tr>
-                        <td>Cores:</td>
-                        <td>16</td>
-                    <tr>
-                        <td>RAM:</td>
-                        <td>80 GB</td>
-                    </tr>
-                    <tr>
-                        <td>Disk:</td>
-                        <td>2,000 GB RAID10 SSD</td>
-                    </tr>
-                    <tr>
-                        <td>Net</td>
-                        <td>40 Gbe</td>
-                    </tr>
-                <% } if (hardware == undefined) { %>
+            <div class="col-xs-12 col-sm-3">
 
-                    <tr>
-                        <td>OS:</td>
-                        <td>
-                            <% if (os !== undefined) { %>
-                                <%= os %>
-                            <% } else { %>
-                                Not selected!
-                            <% } %>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Cores:</td>
-                        <td style="color:red">Not Selected!</td>
-                    <tr>
-                        <td>RAM:</td>
-                        <td style="color:red">Not Selected!</td>
-                    </tr>
-                    <tr>
-                        <td>Disk:</td>
-                        <td style="color:red">Not Selected!</td>
-                    </tr>
-                    <tr>
-                        <td>Net</td>
-                        <td style="color:red">Not Selected!</td>
-                    </tr>
+            </div>
 
-                <% } %>
+            <div class="col-xs-12 col-sm-3">
 
-            </table>
+            </div>
 
-        </div>
-        <div class="span6">
-            <h5>Datacenters:</h5>
-            <table class="table table-responsive table-striped" style="border:1px solid rgba(0,0,0,0.1)">
-                <thead>
-                    <th>Datacenter</th>
-                    <th>Quantity</th>
-                </thead>
-                <% for(var dc in datacenter) { %>
-                    <tr>
-                        <td><%= datacenter[dc].dc %></td>
-                        <td><%= datacenter[dc].quantity %>x</td>
-                    </tr>
-                <% } %>
+        </form>
 
-                <% if (datacenter.length == 0) { %>
-                    <tr>
-                        <td colspan="2" style="color: red">No Datacenter Selected</td>
-                    </tr>
-                <% } %>
-            </table>
+        <div class="col-xs-12 col-sm-6">
+
+            <p>We are all asked to bring some food to be prepared for the group. On the left is a list of the food current ticket holders are bringing.  Try to choose food that isn't on the list yet. This way we don't end up with a bunch of kale and eggs.</p>
 
         </div>
     </div>
 
-    <hr>
+    <form>
 
-    <input type="checkbox"> I Confirm my order
-
-    <button id="submit-machine-order" class="btn btn-success disabled pull-right" disabled="true" style="margin:0;">Submit</button>
-
-    <hr>
+    </form>
 
 </div>

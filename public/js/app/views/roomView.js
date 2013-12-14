@@ -1,11 +1,11 @@
 // InfoView.js
 // ====================
 
-define(["jquery", "backbone", "text!templates/pay.html" ],
+define(["jquery", "backbone", "text!templates/rooms.html" ],
 
     function($, Backbone, template){
 
-    	var InfoView = Backbone.View.extend({
+    	var RoomView = Backbone.View.extend({
 
 		    tagName: 'div',
 
@@ -43,7 +43,7 @@ define(["jquery", "backbone", "text!templates/pay.html" ],
 
 	});
 
-    return InfoView;
+    return RoomView;
 
 	}
 );
