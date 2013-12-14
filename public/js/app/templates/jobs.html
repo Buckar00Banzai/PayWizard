@@ -1,0 +1,145 @@
+<div class="wizard-view">
+
+    <hr>
+
+    <h3>Job Selection</h3>
+
+    <hr>
+
+    <div class="row">
+
+        <form role="form">
+            <div class="col-xs-3">
+
+                <div class="form-group">
+                    <% if(alter === 0) { %>
+                        <input type="radio" name="jobs" id="alter" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="alter">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="alter">Alter (<%= alter %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(brunchPrep === 0) { %>
+                        <input type="radio" name="jobs" id="brunch-prep" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="brunch-prep">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="brunchPrep">Brunch Preparation (<%= brunchPrep %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(brunchClean === 0) { %>
+                        <input type="radio" name="jobs" id="brunch-Clean" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="brunch-Clean">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="brunchClean">Brunch Clean Up (<%= brunchClean %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(dinnerPrep === 0) { %>
+                        <input type="radio" name="jobs" id="dinner-prep" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="dinner-prep">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="dinnerPrep">Dinner Preparation (<%= dinnerPrep %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(dinnerClean === 0) { %>
+                        <input type="radio" name="jobs" id="dinner-Clean" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="dinner-Clean">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="dinnerClean">Dinner Clean Up (<%= dinnerClean %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(fire === 0) { %>
+                        <input type="radio" name="jobs" id="fire-keeper" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="fire-keeper">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="fire">Fire Keeper (<%= fire %>)</label>
+                </div>
+
+            </div>
+
+            <div class="col-xs-3">
+
+                <div class="form-group">
+                    <% if(music === 0) { %>
+                        <input type="radio" name="jobs" id="musician" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="musician">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="musician">Musician (<%= music %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(musicSetup === 0) { %>
+                        <input type="radio" name="jobs" id="music-setup" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="music-setup">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="music-setup">Music Setup (<%= musicSetup %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(tea === 0) { %>
+                        <input type="radio" name="jobs" id="tea" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="tea">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="tea">Tea Preparation (<%= tea %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(teaSetup === 0) { %>
+                        <input type="radio" name="jobs" id="tea-setup" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="tea-setup">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="tea-setup">Tea Alter Setup (<%= teaSetup %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(templeSetup === 0) { %>
+                        <input type="radio" name="jobs" id="temple-setup" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="temple-setup">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="temple-setup">Temple Setup (<%= templeSetup %>)</label>
+                </div>
+
+                <div class="form-group">
+                    <% if(templeBreakdown === 0) { %>
+                        <input type="radio" name="jobs" id="temple-breakdown" disabled>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="temple-breakdown">
+                    <% } %>
+                    <label data-message="some copy about this job" data-title="title of job" class="tt" for="temple-breakdown">Temple Breakdown (<%= templeBreakdown %>)</label>
+                </div>
+
+
+            </div>
+        </form>
+
+        <div class="col-xs-6">
+
+            <p>If you happen to make it here and there are no jobs left, just continue on and we will assign you something when you arrive! Hover over any of the jobs to see the description below.</p>
+
+            <hr>
+            <h4 class="job-title"></h4>
+            <p class="job-description"></p>
+
+        </div>
+    </div>
+
+    <form>
+
+    </form>
+
+</div>
