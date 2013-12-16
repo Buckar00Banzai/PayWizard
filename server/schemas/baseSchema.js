@@ -19,15 +19,17 @@ var baseSchema = new Schema({
   dinnerClean: {type: Number, default: 3},
   brunchPrep: {type: Number, default: 3},
   brunchClean: {type: Number, default: 3},
-  alter: {type: Number, default: 3},
+  altar: {type: Number, default: 3},
   templeSetup: {type: Number, default: 4},
   templeBreakdown: {type: Number, default: 4},
+  pointman: {type: Number, default: 1},
   tea: {type: Number, default: 3},
-  teaSetup: {type: Number, default: 3},
-  music: {type: Number, default: 6},
-  musicSetup: {type: Number, default: 2},
-  fire: {type: Number, default: 2},
-  foodList: {type: Array}
+  teaSetup: {type: Number, default: 4},
+  music: {type: Number, default: 0},
+  musicSetup: {type: Number, default: 3},
+  musicBreakdown: {type: Number, default: 3},
+  fire: {type: Number, default: 4},
+  foodList: {type: Array, default: ['Eggs', 'Kale']}
 });
 
 // CREATE DATABASE MODEL
@@ -54,8 +56,26 @@ module.exports.createBase = function(req, res) {
 }
 
 module.exports.updateBase = function(req, res) {
-  baseModel.update({'key': 0}, function(err, docs){
+
+  console.log(req.body);
+
+  var job = req.body.job,
+      foods = req.body.food;
+
+  baseModel.findOne({'key': 0}, function(err, doc){
     if(err) throw err;
-    res.send(docs);
+    if(foods) {
+      for (var i = 0; i < foods.length; i++) {
+        doc.foodList.push(foods[i]);
+      }
+    }
+
+    doc.tickets = doc.tickets - 1;
+    doc[job] = doc[job] - 1;
+
+    doc.save(function (err, doc) {
+      if (err) console.log(err);
+      res.send(doc);
+    });
   });
 }

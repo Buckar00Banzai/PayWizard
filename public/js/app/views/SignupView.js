@@ -26,7 +26,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                 ref: new DetailsView({
                                     model: ticket
                                 }),
-                                tab: 'Your Info',
+                                tab: 'Nominate',
                                 nu: '1',
                                 progress: '20%'
                             });
@@ -35,7 +35,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                     model: ticket,
                                     base: base
                                 }),
-                                tab: 'Select a Job',
+                                tab: 'Activate',
                                 nu: '2',
                                 progress: '40%'
                             });
@@ -44,26 +44,26 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                     model: ticket,
                                     base: base
                                 }),
-                                tab: 'Food List',
+                                tab: 'Generate',
                                 nu: '3',
                                 progress: '60%'
                             });
-                            Wizard.insertView({
-                                ref: new RoomView({
-                                    model: ticket,
-                                    base: base
-                                }),
-                                tab: 'Room Availabilty',
-                                nu: '4',
-                                progress: '80%'
-                            });
+                            // Wizard.insertView({
+                            //     ref: new RoomView({
+                            //         model: ticket,
+                            //         base: base
+                            //     }),
+                            //     tab: 'Room Availabilty',
+                            //     nu: '4',
+                            //     progress: '80%'
+                            // });
                             Wizard.insertView({
                                 ref: new PayView({
                                     model: ticket,
                                     base: base
                                 }),
-                                tab: 'Confirm and Pay',
-                                nu: '5',
+                                tab: 'Donate',
+                                nu: '4',
                                 progress: '100%'
                             });
                         });

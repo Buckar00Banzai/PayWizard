@@ -23,21 +23,27 @@ define(["jquery", "backbone", "text!templates/details.html" ],
 
 				this.$el.append(this.template(this.model.toJSON()));
 
+				if (this.model.attributes.first_name !== '') {
+					$('#first-name').val(this.model.attributes.first_name);
+				}
+
+				if (this.model.attributes.last_name !== '') {
+					$('#last-name').val(this.model.attributes.last_name);
+				}
+
+				if (this.model.attributes.email !== '') {
+					$('#email').val(this.model.attributes.email);
+				}
+
 				return this;
 			},
 
 			updateModel: function(){
 
 				this.model.set({
-					// company: $('input[name=company]',this.el).val(),
-					// title: $('input[name=title]',this.el).val(),
-					// phone: $('input[name=phone]',this.el).val(),
-					// street: $('input[name=street]',this.el).val(),
-					// street2: $('input[name=street2]',this.el).val(),
-					// city: $('input[name=city]',this.el).val(),
-					// state: $('input[name=state]',this.el).val(),
-					// zip: $('input[name=zip]',this.el).val(),
-					// country: $('input[name=country]',this.el).val()
+					first_name: $('#first-name').val(),
+					last_name: $('#last-name').val(),
+					email: $('#email').val()
 				});
 			}
 

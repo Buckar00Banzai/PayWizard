@@ -2,7 +2,7 @@
 
     <hr>
 
-    <h3>Job Selection</h3>
+    <h3>Activate:</h3>
 
     <hr>
 
@@ -12,57 +12,81 @@
             <div class="col-xs-12 col-sm-3">
 
                 <div class="form-group">
-                    <% if(alter === 0) { %>
-                        <input type="radio" name="jobs" id="alter" disabled>
+                    <% if(pointman === 0) { %>
+                        <input type="radio" name="jobs" id="pointman" disabled>
+                         <label data-message="Take pictures of materials (must take pictures of pillows, blankets, and mats before they are moved and ensuring they are put back in the right place during breakdown)" data-title="Point Person" class="tt red" for="pointman">Point Person* (<%= pointman %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="alter">
+                        <input type="radio" name="jobs" id="pointman">
+                         <label data-message="Take pictures of materials (must take pictures of pillows, blankets, and mats before they are moved and ensuring they are put back in the right place during breakdown)" data-title="Point Person" class="tt" for="pointman">Point Person* (<%= pointman %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Alter" class="tt" for="alter">Alter (<%= alter %>)</label>
+
+                </div>
+
+                <div class="form-group">
+                    <% if(altar === 0) { %>
+                        <input type="radio" name="jobs" id="altar" disabled>
+                        <label data-message="Creating the central altar, sourcing materials from the land, collecting and arranging altar pieces.
+" data-title="Altar" class="tt red" for="altar">Altar* (<%= altar %>)</label>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="altar">
+                        <label data-message="Creating the central altar, sourcing materials from the land, collecting and arranging altar pieces.
+" data-title="Altar" class="tt" for="altar">Altar* (<%= altar %>)</label>
+                    <% } %>
+
                 </div>
 
                 <div class="form-group">
                     <% if(brunchPrep === 0) { %>
-                        <input type="radio" name="jobs" id="brunch-prep" disabled>
+                        <input type="radio" name="jobs" id="brunchPrep" disabled>
+                        <label data-message="Help set up brunch, select from what food people have brought, and prepare a couple of large dishes (scramble, breakfast burritos, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have brunch ready by 11 am." data-title="Brunch Preparation" class="tt red" for="brunchPrep">Brunch Preparation* (<%= brunchPrep %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="brunch-prep">
+                        <input type="radio" name="jobs" id="brunchPrep">
+                        <label data-message="Help set up brunch, select from what food people have brought, and prepare a couple of large dishes (scramble, breakfast burritos, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have brunch ready by 11 am." data-title="Brunch Preparation" class="tt" for="brunchPrep">Brunch Preparation* (<%= brunchPrep %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Brunch Preparation" class="tt" for="brunchPrep">Brunch Preparation (<%= brunchPrep %>)</label>
                 </div>
 
                 <div class="form-group">
                     <% if(brunchClean === 0) { %>
-                        <input type="radio" name="jobs" id="brunch-Clean" disabled>
+                        <input type="radio" name="jobs" id="brunchClean" disabled>
+                         <label data-message="Thanks in advance for your service :)" data-title="Brunch Cleanup" class="tt red" for="brunchClean">Brunch Clean Up* (<%= brunchClean %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="brunch-Clean">
+                        <input type="radio" name="jobs" id="brunchClean">
+                         <label data-message="Thanks in advance for your service :)" data-title="Brunch Cleanup" class="tt" for="brunchClean">Brunch Clean Up* (<%= brunchClean %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Brunch Cleanup" class="tt" for="brunchClean">Brunch Clean Up (<%= brunchClean %>)</label>
+
                 </div>
 
                 <div class="form-group">
                     <% if(dinnerPrep === 0) { %>
-                        <input type="radio" name="jobs" id="dinner-prep" disabled>
+                        <input type="radio" name="jobs" id="dinnerPrep" disabled>
+                        <label data-message="Help set up dinner, select from what food people have brought, and prepare a couple of large dishes (dal, soup, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have dinner ready by sundown. For the light dinner please no meat, dairy, or anything that will unsettle the stomach." data-title="Dinner Preparation" class="tt red" for="dinnerPrep">Dinner Preparation (<%= dinnerPrep %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="dinner-prep">
+                        <input type="radio" name="jobs" id="dinnerPrep">
+                        <label data-message="Help set up dinner, select from what food people have brought, and prepare a couple of large dishes (dal, soup, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have dinner ready by sundown. For the light dinner please no meat, dairy, or anything that will unsettle the stomach." data-title="Dinner Preparation" class="tt" for="dinnerPrep">Dinner Preparation (<%= dinnerPrep %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Dinner Preparation" class="tt" for="dinnerPrep">Dinner Preparation (<%= dinnerPrep %>)</label>
+
                 </div>
 
                 <div class="form-group">
                     <% if(dinnerClean === 0) { %>
-                        <input type="radio" name="jobs" id="dinner-Clean" disabled>
+                        <input type="radio" name="jobs" id="dinnerClean" disabled>
+                         <label data-message="Thanks in advance for your service :)" data-title="Dinner Cleanup" class="tt red" for="dinnerClean">Dinner Clean Up (<%= dinnerClean %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="dinner-Clean">
+                        <input type="radio" name="jobs" id="dinnerClean">
+                         <label data-message="Thanks in advance for your service :)" data-title="Dinner Cleanup" class="tt" for="dinnerClean">Dinner Clean Up (<%= dinnerClean %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Dinner Cleanup" class="tt" for="dinnerClean">Dinner Clean Up (<%= dinnerClean %>)</label>
+
                 </div>
 
                 <div class="form-group">
                     <% if(fire === 0) { %>
-                        <input type="radio" name="jobs" id="fire-keeper" disabled>
+                        <input type="radio" name="jobs" id="fire" disabled>
+                        <label data-message="Help build the fire in advance, stock wood, light and tend the fire through the night. " data-title="Firekeeper" class="tt red" for="fire">Fire Keeper (<%= fire %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="fire-keeper">
+                        <input type="radio" name="jobs" id="fire">
+                        <label data-message="Help build the fire in advance, stock wood, light and tend the fire through the night. " data-title="Firekeeper" class="tt" for="fire">Fire Keeper (<%= fire %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Fire Keeper" class="tt" for="fire">Fire Keeper (<%= fire %>)</label>
+
                 </div>
 
             </div>
@@ -71,56 +95,78 @@
 
                 <div class="form-group">
                     <% if(music === 0) { %>
-                        <input type="radio" name="jobs" id="musician" disabled>
+                        <input type="radio" name="jobs" id="music" disabled>
+                        <label data-message="Bring it." data-title="Musician" class="tt red" for="music">Musician* (<%= music %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="musician">
+                        <input type="radio" name="jobs" id="music">
+                        <label data-message="Bring it." data-title="Musician" class="tt" for="music">Musician* (<%= music %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Musician" class="tt" for="musician">Musician (<%= music %>)</label>
                 </div>
 
                 <div class="form-group">
                     <% if(musicSetup === 0) { %>
-                        <input type="radio" name="jobs" id="music-setup" disabled>
+                        <input type="radio" name="jobs" id="musicSetup" disabled>
+                        <label data-message="Carry sound system equipment and instruments to temple, coordinate with musicians on placement and wiring." data-title="Music Setup" class="tt red" for="musicSetup">Music Setup* (<%= musicSetup %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="music-setup">
+                        <input type="radio" name="jobs" id="musicSetup">
+                        <label data-message="Carry sound system equipment and instruments to temple, coordinate with musicians on placement and wiring." data-title="Music Setup" class="tt" for="musicSetup">Music Setup* (<%= musicSetup %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Music Setup" class="tt" for="music-setup">Music Setup (<%= musicSetup %>)</label>
+
+                </div>
+
+                <div class="form-group">
+                    <% if(musicBreakdown === 0) { %>
+                        <input type="radio" name="jobs" id="musicBreakdown" disabled>
+                         <label data-message="Carry sound system equipment and instruments from temple back to house, help musicians pack and load their gear." data-title="Music Breakdown" class="tt red" for="musicBreakdown">Music Breakdown (<%= musicBreakdown %>)</label>
+                    <% } else { %>
+                        <input type="radio" name="jobs" id="musicBreakdown">
+                         <label data-message="Carry sound system equipment and instruments from temple back to house, help musicians pack and load their gear." data-title="Music Breakdown" class="tt" for="musicBreakdown">Music Breakdown (<%= musicBreakdown %>)</label>
+                    <% } %>
+
                 </div>
 
                 <div class="form-group">
                     <% if(tea === 0) { %>
                         <input type="radio" name="jobs" id="tea" disabled>
+                        <label data-message="Double, double toil and trouble; Fire burn, and caldron bubble..." data-title="Tea Preparation" class="tt red" for="tea">Tea Preparation (<%= tea %>)</label>
                     <% } else { %>
                         <input type="radio" name="jobs" id="tea">
+                        <label data-message="Double, double toil and trouble; Fire burn, and caldron bubble..." data-title="Tea Preparation" class="tt" for="tea">Tea Preparation (<%= tea %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Tea Preparation" class="tt" for="tea">Tea Preparation (<%= tea %>)</label>
+
                 </div>
 
                 <div class="form-group">
                     <% if(teaSetup === 0) { %>
-                        <input type="radio" name="jobs" id="tea-setup" disabled>
+                        <input type="radio" name="jobs" id="teaSetup" disabled>
+                         <label data-message="Decorate tea table. Bring mugs and cooler to temple, set up in temple. Sage the space and the tea, serve tea." data-title="Tea Alter Setup" class="tt red" for="teaSetup">Tea Alter Setup (<%= teaSetup %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="tea-setup">
+                        <input type="radio" name="jobs" id="teaSetup">
+                         <label data-message="Decorate tea table. Bring mugs and cooler to temple, set up in temple. Sage the space and the tea, serve tea." data-title="Tea Alter Setup" class="tt" for="teaSetup">Tea Alter Setup (<%= teaSetup %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Tea Alter Setup" class="tt" for="tea-setup">Tea Alter Setup (<%= teaSetup %>)</label>
+
                 </div>
 
                 <div class="form-group">
                     <% if(templeSetup === 0) { %>
-                        <input type="radio" name="jobs" id="temple-setup" disabled>
+                        <input type="radio" name="jobs" id="templeSetup" disabled>
+                         <label data-message="Arrange mats, pillows, blankets, and candles in the temple space." data-title="Temple Setup" class="tt red" for="templeSetup">Temple Setup* (<%= templeSetup %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="temple-setup">
+                        <input type="radio" name="jobs" id="templeSetup">
+                         <label data-message="Arrange mats, pillows, blankets, and candles in the temple space." data-title="Temple Setup" class="tt" for="templeSetup">Temple Setup* (<%= templeSetup %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Temple Setup" class="tt" for="temple-setup">Temple Setup (<%= templeSetup %>)</label>
+
                 </div>
 
                 <div class="form-group">
                     <% if(templeBreakdown === 0) { %>
-                        <input type="radio" name="jobs" id="temple-breakdown" disabled>
+                        <input type="radio" name="jobs" id="templeBreakdown" disabled>
+                        <label data-message="Coordinate with Point Person to clean up the tmple space and ensure everything is back in its place." data-title="Temple Breakdown" class="tt red" for="templeBreakdown">Temple Breakdown (<%= templeBreakdown %>)</label>
                     <% } else { %>
-                        <input type="radio" name="jobs" id="temple-breakdown">
+                        <input type="radio" name="jobs" id="templeBreakdown">
+                        <label data-message="Coordinate with Point Person to clean up the tmple space and ensure everything is back in its place." data-title="Temple Breakdown" class="tt" for="templeBreakdown">Temple Breakdown (<%= templeBreakdown %>)</label>
                     <% } %>
-                    <label data-message="some copy about this job" data-title="Temple Breakdown" class="tt" for="temple-breakdown">Temple Breakdown (<%= templeBreakdown %>)</label>
+
                 </div>
 
 
@@ -129,9 +175,12 @@
 
         <div class="col-xs-12 col-sm-6">
 
-            <p>If you happen to make it here and there are no jobs left, just continue on and we will assign you something when you arrive! Hover over any of the jobs to see the description below.</p>
+            <p>Please pick an activity to help with. Click on an activity to read a description and press "Next" to confirm. Please arrive by 2pm if you choose an activity from the first half of the list (marked with an *asterisk).</p>
+
+            <p>Try to pick an activity that you resonate with or have some experience with, this is also part of your donation.</p>
 
             <hr>
+
             <h4 class="job-title"></h4>
             <p class="job-description"></p>
 

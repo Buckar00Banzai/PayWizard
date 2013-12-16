@@ -17,6 +17,54 @@ hr {
 .navbar-inverse {
   background: rgba(34, 34, 34, 0.9);
 }
+#food {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+#food ul li {
+  color: #56b6d3;
+  font-size: 16px;
+}
+.blue {
+  color: #56b6d3 !important;
+}
+.red {
+  color: #f3266f !important;
+}
+.hold-on {
+  padding-top: 27px;
+  margin-right: 10px;
+  color: #979797;
+  opacity: 0;
+}
+.food-input {
+  margin-bottom: 10px;
+}
+.btn:focus {
+  outline: none;
+}
+#errors {
+  color: #f3266f;
+  font-size: 14px;
+  padding-top: 5px;
+}
+.price {
+  color: #56b6d3;
+}
+.price small {
+  font-size: 10px;
+  color: #979797;
+}
+.alpaca {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 20px;
+}
+.well {
+  background: black;
+  border-color: #222222;
+}
 .li-previousView {
   margin-right: 10px;
 }

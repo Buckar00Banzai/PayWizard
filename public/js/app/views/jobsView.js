@@ -9,6 +9,8 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 			tagName: 'div',
 
+			job: null,
+
 			initialize: function(options) {
 
 				this.options = options || {};
@@ -17,9 +19,14 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 				this.template = _.template(template);
 
-				console.log(this.options.base.toJSON());
+			},
 
+			events: {
+				'ifChanged input': 'selectJob'
+			},
 
+			selectJob: function(e) {
+				this.job = $(e.target).attr('id');
 			},
 
 			initHoverHelp: function() {
@@ -27,7 +34,8 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
                 var ele = $('.job-description'),
                 	title = $('.job-title');
 
-                $('.tt').mouseover(function(e) {
+
+				$('.tt').click(function(e) {
 
                     var message = $(this).data('message');
                     	jobTitle = $(this).data('title');
@@ -38,9 +46,15 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
                 });
 
-                $('.tt').mouseout(function(e) {
-                    ele.html('');
-                    title.html('');
+				$('input[name=jobs]').on('ifChanged', function(e) {
+
+                    var message = $(this).parent().parent().find('.tt').data('message');
+                    	jobTitle = $(this).parent().parent().find('.tt').data('title');
+
+                    ele.html(message);
+
+                    title.html(jobTitle);
+
                 });
 
             },
@@ -60,23 +74,22 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 					_this.initHoverHelp();
 				}, 1);
 
+				if(this.job !== null) {
+					$('#' + this.job).iCheck('check');
+				}
+
 				return this;
 
 			},
 
 			updateModel: function() {
 
+				var _this = this;
+
 				this.model.set({
-					// company: $('input[name=company]',this.el).val(),
-					// title: $('input[name=title]',this.el).val(),
-					// phone: $('input[name=phone]',this.el).val(),
-					// street: $('input[name=street]',this.el).val(),
-					// street2: $('input[name=street2]',this.el).val(),
-					// city: $('input[name=city]',this.el).val(),
-					// state: $('input[name=state]',this.el).val(),
-					// zip: $('input[name=zip]',this.el).val(),
-					// country: $('input[name=country]',this.el).val()
+					job: _this.job
 				});
+
 			}
 
 		});

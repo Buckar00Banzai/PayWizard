@@ -11,18 +11,31 @@
         <form role="form">
 
             <div class="col-xs-12 col-sm-3">
-
+                <div id="food-clone" class="form-group">
+                    <input type="text" class="form-control food-input" placeholder="Food Item or Dish">
+                </div>
+                <button id="add-food" class="btn btn-primary pull-right"><i class="fa fa-plus"></i></button>
             </div>
 
-            <div class="col-xs-12 col-sm-3">
-
+            <div id="food" class="col-xs-12 col-sm-3">
+                <ul>
+                    <% if(foodList.length === 0) { %>
+                        <li>No items yet!</li>
+                    <% } else { %>
+                        <% _.each(foodList, function(item){ %>
+                            <li><%= item %></li>
+                        <% }); %>
+                    <% } %>
+                </ul>
             </div>
 
         </form>
 
         <div class="col-xs-12 col-sm-6">
 
-            <p>We are all asked to bring some food to be prepared for the group. On the left is a list of the food current ticket holders are bringing.  Try to choose food that isn't on the list yet. This way we don't end up with a bunch of kale and eggs.</p>
+            <p>We will have a potluck for both the light dinner on Saturday and brunch on Sunday. Please bring as much prepared food as possible since access to the kitchen will be limited. For the light dinner please no meat, dairy, or anything that will unsettle the stomach.</p>
+
+            <p>On the left is a list of foods people are already bringing. Try to choose something not yet on the list so we don't end up with a bunch of kale and eggs! If for some reason you did not have time to bring food, don’t despair! We will organize a last minute grocery run after you settle in.</p>
 
         </div>
     </div>

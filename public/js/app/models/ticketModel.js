@@ -7,7 +7,7 @@ define(["jquery", "backbone"],
         // Creates a new Backbone Model class object
         var ticketModel = Backbone.Model.extend({
 
-            url: '',
+            url: '/api/tickets',
 
             // Model Constructor
             initialize: function() {
@@ -16,7 +16,7 @@ define(["jquery", "backbone"],
 
             // Default values for all of the Model attributes
             defaults: {
-
+                food: []
             },
 
             // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)

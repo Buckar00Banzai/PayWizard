@@ -9,7 +9,9 @@ define(["jquery", "backbone", "text!templates/food.html" ],
 
 		    tagName: 'div',
 
-			initialize: function () {
+			initialize: function (options) {
+
+				this.options = options || {};
 
 				_.bindAll(this, 'render', 'updateModel');
 
@@ -17,28 +19,59 @@ define(["jquery", "backbone", "text!templates/food.html" ],
 
 			},
 
+			events: {
+				"click #add-food": "addFood"
+			},
+
+			addFood: function(e) {
+				e.preventDefault();
+				var clone = $('.food-input:first');
+				clone.clone().appendTo('#food-clone').val('').focus();
+			},
+
+			restoreFood: function(food) {
+				var clone = $('.food-input:first');
+				clone.clone().appendTo('#food-clone').val(food);
+			},
+
 			render: function () {
+
+				var _this = this;
 
 				$(this.el).empty();
 
-				this.$el.append(this.template(this.model.toJSON()));
+				this.$el.append(this.template(this.options.base.toJSON()));
+
+				if (this.model.attributes.food.length !== 0) {
+					$(this.model.attributes.food).each(function(i, food){
+
+						console.log(i, food);
+						if(i === 0) {
+							$('.food-input:first').val(food);
+						} else {
+							_this.restoreFood(food);
+						}
+					});
+				}
 
 				return this;
 			},
 
 			updateModel: function(){
 
-				this.model.set({
-					// company: $('input[name=company]',this.el).val(),
-					// title: $('input[name=title]',this.el).val(),
-					// phone: $('input[name=phone]',this.el).val(),
-					// street: $('input[name=street]',this.el).val(),
-					// street2: $('input[name=street2]',this.el).val(),
-					// city: $('input[name=city]',this.el).val(),
-					// state: $('input[name=state]',this.el).val(),
-					// zip: $('input[name=zip]',this.el).val(),
-					// country: $('input[name=country]',this.el).val()
+				var foods = [];
+
+				$('.food-input').each(function(i, food) {
+					if($(this).val() === '') {
+						return;
+					}
+					foods.push($(this).val());
 				});
+
+				this.model.set({
+					food: foods
+				});
+
 			}
 
 	});
