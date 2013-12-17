@@ -67,16 +67,12 @@ module.exports.api = function(server, Base, Ticket) {
 		paypal_sdk.payment.create(payment_details, function(error, payment) {
 			if (error) {
 				console.error(error);
-				console.dir(error.response.details);
 				res.send(400, error);
 			} else {
 				console.log(req.body.ticket.first_name + ' ' + req.body.ticket.last_name + ' bought a ticket!');
-
 				res.send(200, payment);
 			}
 		});
-
-		// res.send(200, {});
 
 	});
 
