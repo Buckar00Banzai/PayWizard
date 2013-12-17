@@ -44,8 +44,6 @@ define(["jquery", "backbone", "text!templates/food.html" ],
 
 				if (this.model.attributes.food.length !== 0) {
 					$(this.model.attributes.food).each(function(i, food){
-
-						console.log(i, food);
 						if(i === 0) {
 							$('.food-input:first').val(food);
 						} else {
