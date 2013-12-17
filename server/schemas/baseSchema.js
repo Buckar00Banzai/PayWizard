@@ -29,7 +29,7 @@ var baseSchema = new Schema({
   musicSetup: {type: Number, default: 3},
   musicBreakdown: {type: Number, default: 3},
   fire: {type: Number, default: 4},
-  foodList: {type: Array, default: ['Eggs', 'Kale']}
+  foodList: {type: Array}
 });
 
 // CREATE DATABASE MODEL
