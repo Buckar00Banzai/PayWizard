@@ -14,8 +14,8 @@ paypal_sdk.configure({
 var smtpTransport = nodemailer.createTransport("SMTP", {
 	service: "Gmail",
 	auth: {
-		user: "alchemicalalpaca@gmail.com",
-		pass: "C3l74rd00r"
+		user: Config.gmail.user,
+		pass: Config.gmail.pass
 	}
 });
 
