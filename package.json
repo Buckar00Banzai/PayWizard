@@ -20,7 +20,8 @@
   "main": "./server/server",
   "dependencies": {
     "express": "3.x",
-    "nodemailer": "~0.5.15"
+    "nodemailer": "~0.5.15",
+    "paypal-rest-sdk": "~0.6.4"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
