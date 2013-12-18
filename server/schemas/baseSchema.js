@@ -25,7 +25,7 @@ var baseSchema = new Schema({
   pointman: {type: Number, default: 1},
   tea: {type: Number, default: 3},
   teaSetup: {type: Number, default: 4},
-  music: {type: Number, default: 0},
+  music: {type: Number, default: 6},
   musicSetup: {type: Number, default: 3},
   musicBreakdown: {type: Number, default: 3},
   fire: {type: Number, default: 4},

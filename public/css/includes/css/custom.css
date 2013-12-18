@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'titleText';
+  src: url('/font/ithornat-webfont.eot');
+  src: url('/font/ithornat-webfont.eot?#iefix') format('embedded-opentype'), url('/font/ithornat-webfont.woff') format('woff'), url('/font/ithornat-webfont.ttf') format('truetype'), url('/font/ithornat-webfont.svg#ithornetregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   background: url(/img/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -7,6 +14,15 @@ body {
 }
 hr {
   border-color: #4d4d4d;
+}
+.titleText {
+  font-family: titleText;
+  font-size: 90px;
+}
+.titleText small {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  color: #3c3c3c;
 }
 .tt {
   cursor: pointer;
