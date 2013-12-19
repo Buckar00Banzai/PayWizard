@@ -1,6 +1,6 @@
 // IndexView.js
 
-define(["jquery", "backbone", "text!templates/Confirm.html"],
+define(["jquery", "backbone", "text!templates/confirm.html"],
 
     function($, Backbone, template) {
 
