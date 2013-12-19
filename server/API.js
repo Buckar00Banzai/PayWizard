@@ -31,6 +31,11 @@ module.exports.api = function(server, Base, Ticket) {
 
 	server.get('/success', function(req, res, next) {
 
+			if (!req.query.PayerID) {
+				res.send(500);
+				return;
+			}
+
 			var execute_payment_details = {
 				"payer_id": req.query.PayerID
 			};
