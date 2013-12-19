@@ -1,8 +1,8 @@
 // Router.js
 
-define(["jquery", "backbone", "models/baseModel", "views/IndexView", "views/SignupView", "collections/IndexCollection"],
+define(["jquery", "backbone", "models/baseModel", "views/IndexView", "views/SignupView", "views/SuccessView", "collections/IndexCollection"],
 
-    function($, Backbone, Base, IndexView, SignupView, Collection) {
+    function($, Backbone, Base, IndexView, SignupView, SuccessView, Collection) {
 
         var Router = Backbone.Router.extend({
 
@@ -18,8 +18,13 @@ define(["jquery", "backbone", "models/baseModel", "views/IndexView", "views/Sign
 
                 // When there is no hash on the url, the home method is called
                 "": "index",
-                "signup": "signup"
+                "signup": "signup",
+                "success": "success"
 
+            },
+
+            success: function() {
+                new SuccessView();
             },
 
             signup: function() {

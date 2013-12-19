@@ -11,7 +11,7 @@ var mongoose =     require('mongoose'),
 var baseSchema = new Schema({
   // GLOBALS
   key: {type: Number, default: 0},
-  tickets: {type: Number, default: 50},
+  tickets: {type: Number, default: 44},
   beds: {type: Number, default: 12},
 
   //JOBS
@@ -25,7 +25,7 @@ var baseSchema = new Schema({
   pointman: {type: Number, default: 1},
   tea: {type: Number, default: 3},
   teaSetup: {type: Number, default: 4},
-  music: {type: Number, default: 6},
+  music: {type: Number, default: 0},
   musicSetup: {type: Number, default: 3},
   musicBreakdown: {type: Number, default: 3},
   fire: {type: Number, default: 4},
@@ -55,12 +55,12 @@ module.exports.createBase = function(req, res) {
   })
 }
 
-module.exports.updateBase = function(req, res) {
+module.exports.updateBase = function(req, res, next) {
 
-  console.log(req.body);
+  console.log(req.session.ticket);
 
-  var job = req.body.job,
-      foods = req.body.food;
+  var job = req.session.ticket.job,
+      foods = req.session.ticket.food;
 
   baseModel.findOne({'key': 0}, function(err, doc){
     if(err) throw err;
@@ -75,7 +75,7 @@ module.exports.updateBase = function(req, res) {
 
     doc.save(function (err, doc) {
       if (err) console.log(err);
-      res.send(doc);
+      next();
     });
   });
 }

@@ -29,65 +29,39 @@ module.exports.api = function(server, Base, Ticket) {
 		Base.getBase
 	);
 
-	server.post('/api/updateBase',
-		Base.updateBase
-	);
+	server.get('/success', function(req, res, next) {
 
-	server.post('/api/authPayment', function(req, res) {
-
-		var payment_details = {
-			"intent": "sale",
-			"payer": {
-				"payment_method": "credit_card",
-				"funding_instruments": [{
-					"credit_card": {
-						"type": req.body.payment.type,
-						"number": req.body.payment.number,
-						"expire_month": req.body.payment.expire_month,
-						"expire_year": req.body.payment.expire_year,
-						"cvv2": req.body.payment.cvv2,
-						"first_name": req.body.payment.first_name,
-						"last_name": req.body.payment.last_name,
-					}
-				}]
-			},
-			"transactions": [{
-				"amount": {
-					"total": "75.10",
-					"currency": "USD",
-					"details": {
-						"subtotal": "75.10",
-						"fee": "00.10"
-					}
-				},
-				"description": "NYE Donation"
-			}]
-		};
-
-		paypal_sdk.payment.create(payment_details, function(error, payment) {
-			if (error) {
-				console.error(error);
-				res.send(400, error);
-			} else {
-				console.log(req.body.ticket.first_name + ' ' + req.body.ticket.last_name + ' bought a ticket!');
-				res.send(200, payment);
-			}
-		});
-
-	});
-
-	server.post('/api/tickets',
-		Ticket.createTicket
-	);
-
-	server.post('/api/sendEmail',
+			var execute_payment_details = {
+				"payer_id": req.query.PayerID
+			};
+			paypal_sdk.payment.execute(req.session.paymentID, execute_payment_details, function(error, payment) {
+				if (error) {
+					console.error(error);
+				} else {
+					req.session.payment = payment;
+					console.log(req.session.ticket.first_name + ' ' + req.session.ticket.last_name + ' bought a ticket!');
+					next();
+				}
+			});
+		},
+		Ticket.createTicket,
+		Base.updateBase,
 		function(req, res) {
 
-			var ticket = req.body.ticket,
-				payment = req.body.payment,
+			var ticket = req.session.ticket,
+				payment = req.session.payment,
 				j, ct;
 
-			switch(ticket.job) {
+			if(!ticket.food) {
+				ticket.food = ['TBD'];
+			}
+
+			if (!ticket.job) {
+				ticket.job = j = ct = 'TBD';
+
+			}
+
+			switch (ticket.job) {
 				case 'dinnerPrep':
 					j = 'Dinner Preparation';
 					ct = '2pm';
@@ -146,17 +120,18 @@ module.exports.api = function(server, Base, Ticket) {
 					break;
 			}
 
-			console.log(req.body);
+			console.log(payment);
 
 			var text = "Hey, this is a confirmation that your donation was accepted and a spot is being held for you at our gathering on New Year's Eve. Grab an extra blankie and an altar piece and alpaca your bags!\n\n";
-				text = text + "DONATION DETAILS:\n\n";
-				text = text + "Total: $" + payment.transactions[0].amount.total + '\n';
-				text = text + "Card: " + payment.payer.funding_instruments[0].credit_card.type + ' ' + payment.payer.funding_instruments[0].credit_card.number + '\n';
-				text = text + "State: " + payment.state + "\n\n";
-				text = text + "CONTRIBUTION DETAILS: \n\n";
-				text = text + "Activate: " + j + " (Call Time: " + ct + ")\n";
-				text = text + "Generate: " + ticket.food.toString().replace('/,/g', ', ') + "\n\n";
-				text = text + "Bring offerings of flowers, fruit, chocolate, candles, feathers, stones, sage, incense, words, laughter, songs, dances, and magic. Grandfather fire will be there to relieve you of anything you wish to leave behind along with 2013.";
+			text = text + "DONATION DETAILS:\n\n";
+			text = text + "Total: $" + payment.transactions[0].amount.total + '\n';
+			text = text + "Payment Method: " + payment.payer.payment_method + '\n';
+			text = text + "Account: " + payment.payer.payer_info.email + '\n';
+			text = text + "State: " + payment.state + "\n\n";
+			text = text + "CONTRIBUTION DETAILS: \n\n";
+			text = text + "Activate: " + j + " (Call Time: " + ct + ")\n";
+			text = text + "Generate: " + ticket.food.join(', ') + "\n\n";
+			text = text + "Bring offerings of flowers, fruit, chocolate, candles, feathers, stones, sage, incense, words, laughter, songs, dances, and magic. Grandfather fire will be there to relieve you of anything you wish to leave behind along with 2013.";
 
 			var mailOptions = {
 				from: "Al the Alpaca ✔ <alchemicalalpaca@gmail.com>", // sender address
@@ -171,11 +146,63 @@ module.exports.api = function(server, Base, Ticket) {
 					console.log(error);
 				} else {
 					console.log("Message sent: " + response.message);
-					res.send(200, {});
+					res.redirect('/#success');
+
 				}
 
 				//smtpTransport.close(); // shut down the connection pool, no more messages
 			});
+		}
+
+	);
+
+	server.post('/api/authPayment', function(req, res) {
+
+		req.session.ticket = req.body.ticket;
+
+		var payment_details = {
+			"intent": "sale",
+			"payer": {
+				"payment_method": "paypal"
+			},
+			"redirect_urls": {
+				"return_url": Config.paypal.return_url,
+				"cancel_url": Config.paypal.cancel_url
+			},
+			"transactions": [{
+				"amount": {
+					"total": "75.10",
+					"currency": "USD",
+					"details": {
+						"subtotal": "75.10"
+					}
+				},
+				"item_list": {
+					"items": [{
+						"quantity": "1",
+						"name": "Donation",
+						"price": "75.10",
+						"sku": "NYE",
+						"currency": "USD"
+					}]
+				},
+				"description": "NYE Donation"
+			}]
+		};
+
+		paypal_sdk.payment.create(payment_details, function(error, payment) {
+			if (error) {
+				res.send(400, error);
+				console.log(error);
+				console.log(error.response.details)
+			} else {
+				req.session.paymentID = payment.id;
+				res.send({
+					redirect: payment.links[1].href
+				});
+			}
 		});
+
+	});
 
 }

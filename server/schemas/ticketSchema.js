@@ -47,11 +47,11 @@ module.exports = ticketModel;
 // SCHEMA METHODS
 // ==============
 
-module.exports.createTicket = function(req, res) {
+module.exports.createTicket = function(req, res, next) {
 
-	ticketModel.create(req.body, function(err, docs) {
+	ticketModel.create(req.session.ticket, function(err, docs) {
 		if (err) throw err;
-		console.log('Ticket created for ' + req.body.first_name + ' ' + req.body.last_name);
-		res.send(200, docs);
+		console.log('Ticket created for ' + req.session.ticket.first_name + ' ' + req.session.ticket.last_name);
+		next();
 	});
 }

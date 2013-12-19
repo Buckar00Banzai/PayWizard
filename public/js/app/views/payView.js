@@ -33,16 +33,45 @@ define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm
 
 				var _this = this;
 
-				$(e.target).closest('button').removeClass('btn-primary').addClass('btn-warning disabled').html('Processing...');
-				var msg = '<span class="hold-on pull-right">This may take a few minutes... </span>';
-				$(msg).insertAfter($(e.target));
+				var model = this.model.toJSON();
 
-				function loop() {
-					$('.hold-on').animate({opacity:'+=1'}, 1000);
-       				$('.hold-on').animate({opacity:'-=0.5'}, 1000, loop);
+				console.log(model);
+
+				for (var property in model) {
+					if (model.hasOwnProperty(property)) {
+						if(property === 'first_name' || property === 'last_name' || property === 'email') {
+
+							console.log(model[property]);
+							if (model[property] === '' || model[property] === undefined || model[property] === null) {
+
+								var msg;
+								switch(property) {
+									case 'email':
+										msg = 'You must provide a valid email address!';
+										break;
+									case 'first_name':
+										msg = 'You must provide your first name!';
+										break;
+									case 'last_name':
+										msg = 'You must provide your last name!';
+										break;
+								}
+
+								$('#errors').html(msg).fadeIn(400, function() {
+									setTimeout(function() {
+										$('#errors').fadeOut(400, function() {
+											$(this).html('');
+										});
+									}, 4000);
+								});
+								return;
+							}
+						}
+
+					}
 				}
-				loop();
 
+				$(e.target).closest('button').removeClass('btn-primary').addClass('btn-warning disabled').html('Processing...');
 
 				var payload = {
 					payment: {
@@ -64,9 +93,11 @@ define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm
 					data: payload,
 				})
 					.done(function(data) {
-						$(e.target).closest('button').removeClass('btn-warning').addClass('btn-success').html('Approved!');
-						_this.successPage();
-						_this.sendEmail(data, _this.model.toJSON());
+						$(e.target).closest('button').removeClass('btn-warning').addClass('btn-success').html('Redirecting to Paypal...');
+
+						if (data.redirect) {
+							window.location.href = data.redirect;
+						}
 					})
 					.fail(function(error) {
 						$(e.target).closest('button').removeClass('btn-warning disabled').addClass('btn-primary').html('<i class="fa fa-heart"></i> Donate!');
@@ -79,59 +110,13 @@ define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm
 						});
 					})
 					.always(function() {
-						$('#cc-1').val();
-						$('#cc-2').val();
-						$('#cc-3').val();
-						$('#cc-4').val();
+						$('#cc-1').val('');
+						$('#cc-2').val('');
+						$('#cc-3').val('');
+						$('#cc-4').val('');
 						$('.hold-on').hide();
 					});
 
-
-			},
-
-			sendEmail: function(payment, ticket) {
-
-				$.ajax({
-					url: '/api/sendEmail',
-					type: 'POST',
-					dataType: 'JSON',
-					data: {
-						payment: payment,
-						ticket: ticket
-					},
-				});
-
-			},
-
-			successPage: function() {
-
-				var _this = this;
-				var job = this.model.get('job');
-				var food = this.model.get('food');
-
-				var confirm = this.confirm(this.model.toJSON());
-
-				$(_this.el).fadeOut(300, function() {
-					$(this).empty();
-					$('#wizard-view-tabs, hr, .progress, .wizard-pager').remove();
-					$(this).append(_this.confirm(_this.model.toJSON())).fadeIn(300);
-				});
-
-
-				this.model.save({
-					success: function() {
-						$.ajax({
-							url: '/api/updateBase',
-							type: 'POST',
-							dataType: 'JSON',
-							data: {
-								job: job,
-								food: food
-							},
-						});
-
-					}
-				});
 
 			},
 
