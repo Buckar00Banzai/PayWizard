@@ -88,59 +88,59 @@ module.exports.api = function(server, Base, Ticket) {
 				j, ct;
 
 			switch(ticket.job) {
-				case dinnerPrep:
+				case 'dinnerPrep':
 					j = 'Dinner Preparation';
 					ct = '2pm';
 					break;
-				case dinnerClean:
+				case 'dinnerClean':
 					j = 'Dinner Clean Up';
 					ct = '4pm';
 					break;
-				case brunchPrep:
+				case 'brunchPrep':
 					j = 'Brunch Preparation';
 					ct = 'Be prepaired to stay until 2pm on the 1st.';
 					break;
-				case brunchClean:
+				case 'brunchClean':
 					j = 'Brunch Clean Up';
 					ct = 'Be prepaired to stay until 2pm on the 1st.';
 					break;
-				case altar:
+				case 'altar':
 					j = 'Altar';
 					ct = '2pm';
 					break;
-				case templeSetup:
+				case 'templeSetup':
 					j = 'Temple Setup';
 					ct = '2pm';
 					break;
-				case templeBreakdown:
+				case 'templeBreakdown':
 					j = 'Temple Breakdown';
 					ct = 'Be prepaired to stay until 2pm on the 1st.';
 					break;
-				case pointman:
+				case 'pointman':
 					j = 'Point Person';
 					ct = '2pm';
 					break;
-				case tea:
+				case 'tea':
 					j = 'Tea Preparation';
 					ct = '2pm';
 					break;
-				case teaSetup:
+				case 'teaSetup':
 					j = 'Tea Setup';
 					ct = '4pm';
 					break;
-				case music:
+				case 'music':
 					j = 'Musician';
 					ct = '2pm';
 					break;
-				case musicSetup:
+				case 'musicSetup':
 					j = 'Music Setup';
 					ct = '2pm';
 					break;
-				case musicBreakdown:
+				case 'musicBreakdown':
 					j = 'Music Breakdown';
 					ct = 'Be prepaired to stay until 2pm on the 1st.';
 					break;
-				case fire:
+				case 'fire':
 					j = 'Firekeeper';
 					ct = '4pm';
 					break;
