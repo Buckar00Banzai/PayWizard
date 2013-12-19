@@ -93,7 +93,7 @@ module.exports.api = function(server, Base, Ticket) {
 					ct = '2pm';
 					break;
 				case dinnerClean:
-					j = 'Dinner Cleanup';
+					j = 'Dinner Clean Up';
 					ct = '4pm';
 					break;
 				case brunchPrep:
@@ -101,7 +101,7 @@ module.exports.api = function(server, Base, Ticket) {
 					ct = 'Be prepaired to stay until 2pm on the 1st.';
 					break;
 				case brunchClean:
-					j = 'Brunch Cleanup';
+					j = 'Brunch Clean Up';
 					ct = 'Be prepaired to stay until 2pm on the 1st.';
 					break;
 				case altar:

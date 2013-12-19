@@ -38,20 +38,20 @@
                 <div class="form-group">
                     <% if(brunchPrep === 0) { %>
                         <input type="radio" name="jobs" id="brunchPrep" disabled>
-                        <label data-message="Help set up brunch, select from what food people have brought, and prepare a couple of large dishes (scramble, breakfast burritos, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have brunch ready by 11 am." data-title="Brunch Preparation" class="tt red" for="brunchPrep">Brunch Preparation* (<%= brunchPrep %>)</label>
+                        <label data-message="Help set up brunch, select from what food people have brought, and prepare a couple of large dishes (scramble, breakfast burritos, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have brunch ready by 11 am." data-title="Brunch Preparation" class="tt red" for="brunchPrep">Brunch Preparation (<%= brunchPrep %>)</label>
                     <% } else { %>
                         <input type="radio" name="jobs" id="brunchPrep">
-                        <label data-message="Help set up brunch, select from what food people have brought, and prepare a couple of large dishes (scramble, breakfast burritos, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have brunch ready by 11 am." data-title="Brunch Preparation" class="tt" for="brunchPrep">Brunch Preparation* (<%= brunchPrep %>)</label>
+                        <label data-message="Help set up brunch, select from what food people have brought, and prepare a couple of large dishes (scramble, breakfast burritos, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have brunch ready by 11 am." data-title="Brunch Preparation" class="tt" for="brunchPrep">Brunch Preparation (<%= brunchPrep %>)</label>
                     <% } %>
                 </div>
 
                 <div class="form-group">
                     <% if(brunchClean === 0) { %>
                         <input type="radio" name="jobs" id="brunchClean" disabled>
-                         <label data-message="Thanks in advance for your service :)" data-title="Brunch Cleanup" class="tt red" for="brunchClean">Brunch Clean Up* (<%= brunchClean %>)</label>
+                         <label data-message="Thanks in advance for your service :)" data-title="Brunch Cleanup" class="tt red" for="brunchClean">Brunch Clean Up (<%= brunchClean %>)</label>
                     <% } else { %>
                         <input type="radio" name="jobs" id="brunchClean">
-                         <label data-message="Thanks in advance for your service :)" data-title="Brunch Cleanup" class="tt" for="brunchClean">Brunch Clean Up* (<%= brunchClean %>)</label>
+                         <label data-message="Thanks in advance for your service :)" data-title="Brunch Cleanup" class="tt" for="brunchClean">Brunch Clean Up (<%= brunchClean %>)</label>
                     <% } %>
 
                 </div>
@@ -59,10 +59,10 @@
                 <div class="form-group">
                     <% if(dinnerPrep === 0) { %>
                         <input type="radio" name="jobs" id="dinnerPrep" disabled>
-                        <label data-message="Help set up dinner, select from what food people have brought, and prepare a couple of large dishes (dal, soup, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have dinner ready by sundown. For the light dinner please no meat, dairy, or anything that will unsettle the stomach." data-title="Dinner Preparation" class="tt red" for="dinnerPrep">Dinner Preparation (<%= dinnerPrep %>)</label>
+                        <label data-message="Help set up dinner, select from what food people have brought, and prepare a couple of large dishes (dal, soup, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have dinner ready by sundown. For the light dinner please no meat, dairy, or anything that will unsettle the stomach." data-title="Dinner Preparation" class="tt red" for="dinnerPrep">Dinner Preparation* (<%= dinnerPrep %>)</label>
                     <% } else { %>
                         <input type="radio" name="jobs" id="dinnerPrep">
-                        <label data-message="Help set up dinner, select from what food people have brought, and prepare a couple of large dishes (dal, soup, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have dinner ready by sundown. For the light dinner please no meat, dairy, or anything that will unsettle the stomach." data-title="Dinner Preparation" class="tt" for="dinnerPrep">Dinner Preparation (<%= dinnerPrep %>)</label>
+                        <label data-message="Help set up dinner, select from what food people have brought, and prepare a couple of large dishes (dal, soup, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have dinner ready by sundown. For the light dinner please no meat, dairy, or anything that will unsettle the stomach." data-title="Dinner Preparation" class="tt" for="dinnerPrep">Dinner Preparation* (<%= dinnerPrep %>)</label>
                     <% } %>
 
                 </div>
@@ -70,10 +70,10 @@
                 <div class="form-group">
                     <% if(dinnerClean === 0) { %>
                         <input type="radio" name="jobs" id="dinnerClean" disabled>
-                         <label data-message="Thanks in advance for your service :)" data-title="Dinner Cleanup" class="tt red" for="dinnerClean">Dinner Clean Up (<%= dinnerClean %>)</label>
+                         <label data-message="Thanks in advance for your service :)" data-title="Dinner Cleanup" class="tt red" for="dinnerClean">Dinner Clean Up* (<%= dinnerClean %>)</label>
                     <% } else { %>
                         <input type="radio" name="jobs" id="dinnerClean">
-                         <label data-message="Thanks in advance for your service :)" data-title="Dinner Cleanup" class="tt" for="dinnerClean">Dinner Clean Up (<%= dinnerClean %>)</label>
+                         <label data-message="Thanks in advance for your service :)" data-title="Dinner Cleanup" class="tt" for="dinnerClean">Dinner Clean Up* (<%= dinnerClean %>)</label>
                     <% } %>
 
                 </div>
