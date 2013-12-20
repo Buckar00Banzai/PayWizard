@@ -176,17 +176,17 @@ module.exports.api = function(server, Base, Ticket) {
 			},
 			"transactions": [{
 				"amount": {
-					"total": "75.10",
+					"total": "77.48",
 					"currency": "USD",
 					"details": {
-						"subtotal": "75.10"
+						"subtotal": "77.48"
 					}
 				},
 				"item_list": {
 					"items": [{
 						"quantity": "1",
 						"name": "Donation",
-						"price": "75.10",
+						"price": "77.48",
 						"sku": "NYE",
 						"currency": "USD"
 					}]
