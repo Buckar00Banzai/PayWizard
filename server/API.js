@@ -136,7 +136,33 @@ module.exports.api = function(server, Base, Ticket) {
 			text = text + "CONTRIBUTION DETAILS: \n\n";
 			text = text + "Activate: " + j + " (Call Time: " + ct + ")\n";
 			text = text + "Generate: " + ticket.food.join(', ') + "\n\n";
-			text = text + "Bring offerings of flowers, fruit, chocolate, candles, feathers, stones, sage, incense, words, laughter, songs, dances, and magic. Grandfather fire will be there to relieve you of anything you wish to leave behind along with 2013.";
+			text = text + "Bring offerings of flowers, fruit, chocolate, candles, feathers, stones, sage, incense, words, laughter, songs, dances, and magic. Grandfather fire will be there to relieve you of anything you wish to leave behind along with 2013.\n\n";
+
+			text = text + "DIRECTIONS:  20 Jennings Rd., Greenville, NY (about 2.5 hours from NYC, 45 minutes from Woodstock).\n\n";
+
+			text = text + 'From the south:\n\n';
+			text = text + 'I-87 N\n';
+			text = text + 'Take exit 21 toward RT 23/Catskill (.6 mi)\n';
+			text = text + 'Turn left at CR-23B (.3 mi)\n';
+			text = text + 'Slight right onto 23W (7.7 mi)\n';
+			text = text + 'Slight right at RT 32 (10.7 mi)\n';
+			text = text + 'Turn left at CR-405 (.2 mi)\n';
+			text = text + 'Turn left at Jennings rd\n\n';
+
+			text = text + 'From the North:\n\n';
+			text = text + 'I-87 S\n';
+			text = text + 'Take exit 21B for US-9W S toward Coxsackie/RT-81 (.3 mi)\n';
+			text = text + 'Turn left at US-9W (2.2 mi)\n';
+			text = text + 'Turn right at RT-81 (1.0 mi)\n';
+			text = text + 'Turn right at CR-26 (5.2 mi)\n';
+			text = text + 'Turn right at Hillcrest Rd (3.6 mi)\n';
+			text = text + 'Slight left at CR-38 (1.4 mi)\n';
+			text = text + 'Continue on CR-405 (1.2 mi)\n';
+			text = text + 'Turn left at Jennings Rd\n\n';
+
+			text = text + 'Bus/Train:\n\n';
+
+			text = text + 'There is a bus that leaves from Port Authority, NYC on Adirondack Trailways, it connects through Kingston, NY and you get off at Karen’s Flower Shop in Cairo, NY, the stop is called Cairo Junction. There is no regular taxi service here, but you can call Lee’s taxi (518-966-4861) and make an appointment ahead of time. It’s a 15 minute ride to the house. Also you can take Amtrak from Penn Station to Hudson, NY and take a regular taxi from there. It’s a 40 minute ride to the house.';
 
 			var mailOptions = {
 				from: "Al the Alpaca ✔ <alchemicalalpaca@gmail.com>", // sender address
