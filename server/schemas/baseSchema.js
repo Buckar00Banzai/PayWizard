@@ -19,7 +19,7 @@ var baseSchema = new Schema({
   dinnerClean: {type: Number, default: 3},
   brunchPrep: {type: Number, default: 3},
   brunchClean: {type: Number, default: 3},
-  altar: {type: Number, default: 3},
+  altar: {type: Number, default: 4},
   templeSetup: {type: Number, default: 4},
   templeBreakdown: {type: Number, default: 4},
   pointman: {type: Number, default: 1},

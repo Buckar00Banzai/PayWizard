@@ -6,7 +6,7 @@
   font-style: normal;
 }
 body {
-  background: url(/img/bg.jpg) no-repeat center center fixed;
+  background: url(/img/bgleo.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,9 +15,15 @@ body {
 hr {
   border-color: #4d4d4d;
 }
+h2 {
+  font-size: 40px;
+}
 .titleText {
-  font-family: titleText;
-  font-size: 120px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 100px;
+  -webkit-text-stroke: 3px black;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; 0 #000;
 }
 .titleText small {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

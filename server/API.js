@@ -90,59 +90,59 @@ module.exports.api = function(server, Base, Ticket) {
 			switch(ticket.job) {
 				case 'dinnerPrep':
 					j = 'Dinner Preparation';
-					ct = '2pm';
+					ct = '1pm';
 					break;
 				case 'dinnerClean':
 					j = 'Dinner Clean Up';
-					ct = '4pm';
+					ct = '3pm';
 					break;
 				case 'brunchPrep':
 					j = 'Brunch Preparation';
-					ct = 'Be prepaired to stay until 2pm on the 1st.';
+					ct = 'Be prepaired to stay until 1pm on the 1st.';
 					break;
 				case 'brunchClean':
 					j = 'Brunch Clean Up';
-					ct = 'Be prepaired to stay until 2pm on the 1st.';
+					ct = 'Be prepaired to stay until 1pm on the 1st.';
 					break;
 				case 'altar':
 					j = 'Altar';
-					ct = '2pm';
+					ct = '1pm';
 					break;
 				case 'templeSetup':
 					j = 'Temple Setup';
-					ct = '2pm';
+					ct = '1pm';
 					break;
 				case 'templeBreakdown':
 					j = 'Temple Breakdown';
-					ct = 'Be prepaired to stay until 2pm on the 1st.';
+					ct = 'Be prepaired to stay until 1pm on the 1st.';
 					break;
 				case 'pointman':
 					j = 'Point Person';
-					ct = '2pm';
+					ct = '1pm';
 					break;
 				case 'tea':
 					j = 'Tea Preparation';
-					ct = '2pm';
+					ct = '1pm';
 					break;
 				case 'teaSetup':
 					j = 'Tea Setup';
-					ct = '4pm';
+					ct = '3pm';
 					break;
 				case 'music':
 					j = 'Musician';
-					ct = '2pm';
+					ct = '1pm';
 					break;
 				case 'musicSetup':
 					j = 'Music Setup';
-					ct = '2pm';
+					ct = '1pm';
 					break;
 				case 'musicBreakdown':
 					j = 'Music Breakdown';
-					ct = 'Be prepaired to stay until 2pm on the 1st.';
+					ct = 'Be prepaired to stay until 1pm on the 1st.';
 					break;
 				case 'fire':
 					j = 'Firekeeper';
-					ct = '4pm';
+					ct = '3pm';
 					break;
 			}
 
