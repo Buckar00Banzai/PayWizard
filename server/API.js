@@ -41,8 +41,8 @@ module.exports.api = function(server, Base, Ticket) {
 				"payment_method": "credit_card",
 				"funding_instruments": [{
 					"credit_card": {
-						"type": req.body.payment.type,
 						"number": req.body.payment.number,
+						"type": req.body.payment.type,
 						"expire_month": req.body.payment.expire_month,
 						"expire_year": req.body.payment.expire_year,
 						"cvv2": req.body.payment.cvv2,
@@ -53,11 +53,10 @@ module.exports.api = function(server, Base, Ticket) {
 			},
 			"transactions": [{
 				"amount": {
-					"total": req.body.payment.payTier,
+					"total": req.body.payment.subtotal,
 					"currency": "USD",
 					"details": {
-						"subtotal": req.body.payment.payTier,
-						"fee": "00.10"
+						"subtotal": req.body.payment.subtotal,
 					}
 				},
 				"description": "New Moon in Leo Donation"
@@ -148,7 +147,7 @@ module.exports.api = function(server, Base, Ticket) {
 
 			console.log(req.body);
 
-			var text = "Hey, this is a confirmation that your donation was accepted and a spot is being held for you at our gathering on New Year's Eve. Grab an extra blankie and an altar piece and alpaca your bags!\n\n";
+			var text = "Hey, this is a confirmation that your donation was accepted and a spot is being held for you at our gathering on July 26, 2014. Grab an extra blankie and an altar piece and alpaca your bags!\n\n";
 				text = text + "DONATION DETAILS:\n\n";
 				text = text + "Total: $" + payment.transactions[0].amount.total + '\n';
 				text = text + "Card: " + payment.payer.funding_instruments[0].credit_card.type + ' ' + payment.payer.funding_instruments[0].credit_card.number + '\n';
@@ -156,7 +155,7 @@ module.exports.api = function(server, Base, Ticket) {
 				text = text + "CONTRIBUTION DETAILS: \n\n";
 				text = text + "Activate: " + j + " (Call Time: " + ct + ")\n";
 				text = text + "Generate: " + ticket.food.toString().replace('/,/g', ', ') + "\n\n";
-				text = text + "Bring offerings of flowers, fruit, chocolate, candles, feathers, stones, sage, incense, words, laughter, songs, dances, and magic. Grandfather fire will be there to relieve you of anything you wish to leave behind along with 2013.";
+				text = text + "Bring offerings of flowers, fruit, chocolate, candles, feathers, stones, sage, incense, words, laughter, songs, dances, and magic. Grandfather fire will be there to relieve you of anything you wish to leave behind along with the Old Moon.";
 
 			var mailOptions = {
 				from: "Al the Alpaca ✔ <alchemicalalpaca@gmail.com>", // sender address

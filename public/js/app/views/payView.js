@@ -23,8 +23,8 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
 			events: {
 				'click #donate': 'donate',
-				'ifChanged input': 'selectCard',
-				'ifChanged input': 'selectPayTier'
+				'ifToggled .cards': 'selectCard',
+				'ifToggled .payTier': 'selectPayTier'
 			},
 
 			selectCard: function(e) {
@@ -90,7 +90,8 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 						expire_month: $('#exp-month').val(),
 						expire_year: $('#exp-year').val(),
 						cvv2: $('#cvv').val(),
-						payTier: this.payTier
+						subtotal: this.payTier,
+						//total: this.payTier + ".10",
 					},
 					ticket: this.model.toJSON()
 				};
@@ -146,7 +147,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				var _this = this;
 				var job = this.model.get('job');
 				var food = this.model.get('food');
-				var payTier = this.model.get('payTier')
+				var payTier = this.model.get('payTier');
 
 				var confirm = this.confirm(this.model.toJSON());
 
@@ -165,7 +166,8 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 							dataType: 'JSON',
 							data: {
 								job: job,
-								food: food
+								food: food,
+								payTier: payTier
 							},
 						});
 
