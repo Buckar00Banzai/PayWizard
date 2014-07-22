@@ -1,14 +1,16 @@
 // InfoView.js
 // ====================
 
-define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm.html"],
+define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templates/confirm.html"],
 
-	function($, Backbone, template, confirmTemplate) {
+	function($, Backbone, iCheck, template, confirmTemplate) {
 
 		var InfoView = Backbone.View.extend({
 
 			tagName: 'div',
 			card: null,
+
+			payTier: null,
 
 			initialize: function() {
 
@@ -21,12 +23,47 @@ define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm
 
 			events: {
 				'click #donate': 'donate',
-				'ifChanged input': 'selectCard'
+				'ifChanged input': 'selectCard',
+				'ifChanged input': 'selectPayTier'
 			},
 
 			selectCard: function(e) {
 				this.card = $(e.target).attr('id');
 			},
+
+			selectPayTier: function(e) {
+				this.payTier = $(e.target).attr('id');
+			},
+
+			initHoverHelp: function() {
+
+                var ele = $('.payTier-description'),
+                	title = $('.payTier-title');
+
+
+				$('.tt').click(function(e) {
+
+                    var message = $(this).data('message');
+                    	payTierTitle = $(this).data('title');
+
+                    ele.html(message);
+
+                    title.html(payTierTitle);
+
+                });
+
+				$('input[name=payTier]').on('ifChanged', function(e) {
+
+                    var message = $(this).parent().parent().find('.tt').data('message');
+                    	payTierTitle = $(this).parent().parent().find('.tt').data('title');
+
+                    ele.html(message);
+
+                    title.html(payTierTitle);
+
+                });
+
+            },
 
 			donate: function(e) {
 				e.preventDefault();
@@ -52,7 +89,8 @@ define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm
 						number: $('#cc-1').val() + $('#cc-2').val() + $('#cc-3').val() + $('#cc-4').val(),
 						expire_month: $('#exp-month').val(),
 						expire_year: $('#exp-year').val(),
-						cvv2: $('#cvv').val()
+						cvv2: $('#cvv').val(),
+						payTier: this.payTier
 					},
 					ticket: this.model.toJSON()
 				};
@@ -108,6 +146,7 @@ define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm
 				var _this = this;
 				var job = this.model.get('job');
 				var food = this.model.get('food');
+				var payTier = this.model.get('payTier')
 
 				var confirm = this.confirm(this.model.toJSON());
 
@@ -141,6 +180,8 @@ define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm
 
 			render: function() {
 
+				var _this = this;
+
 				$(this.el).empty();
 
 				this.$el.append(this.template(this.model.toJSON()));
@@ -165,6 +206,7 @@ define(["jquery", "backbone", "text!templates/pay.html", "text!templates/confirm
 						"mask": "9999",
 						"placeholder": ""
 					});
+					_this.initHoverHelp();
 				}, 1);
 
 				return this;

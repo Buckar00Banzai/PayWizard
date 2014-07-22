@@ -53,14 +53,14 @@ module.exports.api = function(server, Base, Ticket) {
 			},
 			"transactions": [{
 				"amount": {
-					"total": "75.10",
+					"total": req.body.payment.payTier,
 					"currency": "USD",
 					"details": {
-						"subtotal": "75.10",
+						"subtotal": req.body.payment.payTier,
 						"fee": "00.10"
 					}
 				},
-				"description": "NYE Donation"
+				"description": "New Moon in Leo Donation"
 			}]
 		};
 
@@ -161,7 +161,7 @@ module.exports.api = function(server, Base, Ticket) {
 			var mailOptions = {
 				from: "Al the Alpaca ✔ <alchemicalalpaca@gmail.com>", // sender address
 				to: ticket.email, // list of receivers
-				subject: "Your NYE Confirmation", // Subject line
+				subject: "Your New Moon in Leo Confirmation", // Subject line
 				text: text // plaintext body
 			};
 
