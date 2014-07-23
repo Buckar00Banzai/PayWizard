@@ -97,11 +97,11 @@ module.exports.api = function(server, Base, Ticket) {
 					break;
 				case 'brunchPrep':
 					j = 'Brunch Preparation';
-					ct = 'Be prepaired to stay until 1pm on the 1st.';
+					ct = 'Be prepared to stay until 1pm on Sunday the 27th.';
 					break;
 				case 'brunchClean':
 					j = 'Brunch Clean Up';
-					ct = 'Be prepaired to stay until 1pm on the 1st.';
+					ct = 'Be prepared to stay until 1pm on Sunday the 27th.';
 					break;
 				case 'altar':
 					j = 'Altar';
@@ -113,7 +113,7 @@ module.exports.api = function(server, Base, Ticket) {
 					break;
 				case 'templeBreakdown':
 					j = 'Temple Breakdown';
-					ct = 'Be prepaired to stay until 1pm on the 1st.';
+					ct = 'Be prepared to stay until 1pm on Sunday the 27th.';
 					break;
 				case 'pointman':
 					j = 'Point Person';
@@ -137,7 +137,7 @@ module.exports.api = function(server, Base, Ticket) {
 					break;
 				case 'musicBreakdown':
 					j = 'Music Breakdown';
-					ct = 'Be prepaired to stay until 1pm on the 1st.';
+					ct = 'Be prepared to stay until 1pm on Sunday the 27th.';
 					break;
 				case 'fire':
 					j = 'Firekeeper';
