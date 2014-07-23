@@ -57,6 +57,7 @@ module.exports.api = function(server, Base, Ticket) {
 					"currency": "USD",
 					"details": {
 						"subtotal": req.body.payment.subtotal,
+						"fee": "0.10",
 					}
 				},
 				"description": "New Moon in Leo Donation"
