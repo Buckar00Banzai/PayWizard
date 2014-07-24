@@ -18,6 +18,10 @@ hr {
 h2 {
   font-size: 40px;
 }
+h6 {
+  font-size: 14px;
+  color: orange;
+}
 .titleText {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 100px;
